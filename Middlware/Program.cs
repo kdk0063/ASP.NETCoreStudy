@@ -1,4 +1,5 @@
 //1. create an instance of web application builder
+using Middleware.CustomMiddleware;
 using Middlware.CustomMiddleware;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -28,12 +29,13 @@ app.Use(async (context, next) =>
 
 //Middleware 3 / custom middleware
 //app.UseMiddleware<MyMiddleware>();
-app.MyMiddleware();
+//app.MyMiddleware();
+app.UseAnotherMiddleware();
 
 //Middleware 4
 app.Run(async (HttpContext context) =>
     {
-        await context.Response.WriteAsync("This is ASP .Net Core app 222\n\n");
+        await context.Response.WriteAsync("Middleware 4 called\n\n");
     }
 );
 

@@ -1,6 +1,7 @@
 ﻿
 namespace Middlware.CustomMiddleware
 {
+    //in order to implment custom middleware we need to inherit "Imiddleware" interface
     public class MyMiddleware : IMiddleware
     {
         public async Task InvokeAsync(HttpContext context, RequestDelegate next)
@@ -15,6 +16,7 @@ namespace Middlware.CustomMiddleware
         }
     }
 
+    //creating extension method
     public static class CustomMiddlewareExtension
     {
         public static IApplicationBuilder MyMiddleware(this IApplicationBuilder app)
